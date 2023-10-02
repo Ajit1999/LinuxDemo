@@ -1,0 +1,80 @@
+Write a Shell Script which prints I will complete #90DaysOofDevOps challenge
+>> vim first.sh
+
+  #! /bin/bash
+  touch newfile
+  echo "I will complete #90DaysOofDevOps challenge" > newfile
+  cat newfile
+  
+>> bash first.sh
+I will complete #90DaysOofDevOps challenge
+
+
+Write a Shell Script to take user input, input from arguments and print the variables.
+>> vim second.sh
+
+  #!/bin/bash
+  # Taking user input
+  echo "Please enter a value:"
+  read user_input
+  # Taking input from command line arguments
+  arg1=$1
+  arg2=$2
+  # Printing variables
+  echo "User input: $user_input"
+  echo "Argument 1: $arg1"
+  echo "Argument 2: $arg2"
+
+>> ./second.sh shell script
+Please enter a value:
+hello
+User input: hello
+Argument 1: shell
+Argument 2: script
+
+
+Write an Example of If else in Shell Scripting by comparing 2 numbers
+>> vim third.sh
+
+  #!/bin/bash
+  # Define two numbers
+  number1=10
+  number2=20
+  # Compare the numbers
+  if [ $number1 -gt $number2 ]; then
+  echo "$number1 is greater than $number2"
+  elif [ $number1 -lt $number2 ]; then
+  echo "$number1 is less than $number2"
+  else
+  echo "Both numbers are equal"
+  fi
+
+>>./third.sh
+10 is less than 20
+
+
+Tasks : 2
+You have to do the same using Shell Script i.e using either Loops or command with start day
+and end day variables using arguments -
+So Write a bash script create directories.sh that when the script is executed with three given
+arguments (one is the directory name and second is start number of directories and third is the
+end number of directories ) it creates a specified number of directories with a dynamic directory
+name.
+Example 1: When the script is executed as
+./createDirectories.sh day 1 90
+then it creates 90 directories as day1 day2 day3 .... day90
+
+#!/bin/bash
+# Check if the number of arguments is correct
+if [ $# -ne 3 ]; then
+echo "Usage: $0 <prefix> <start> <end>"
+exit 1
+fi
+prefix=$1
+start=$2
+end=$3
+# Create directories
+for ((i=start; i<=end; i++)); do
+mkdir "$prefix$i"
+done
+echo "Directories created successfully."
